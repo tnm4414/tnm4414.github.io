@@ -5,212 +5,417 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>About - L N Unique Creations</title>
+    <title>Taylor Morabito E-Profile</title>
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+            .education-section {
+        padding: 50px 0;
+        text-align: center;
+        color: white;
+        margin-bottom: 100px;
+    }
+    .education-section h2 {
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 30px;
+    }
+    .education-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .education-entry {
+        display: flex;
+        align-items: center;
+        background-color: rgba(50, 50, 50, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 0 auto;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
+    .education-entry:hover {
+    transform: scale(1.05);  /* Zooms in slightly on hover */
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);  /* Adds a blue shadow on hover */
+    }
+    .education-logo {
+        width: 100px;
+        height: auto;
+        margin-right: 20px;
+    }
+    .education-text {
+        text-align: left;
+    }
+    .education-degree {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+    .education-details {
+        font-size: 1em;
+        color: #ddd;
+    }
         body {
             background: black;
             margin: 0;
             height: 100%;
             display: flex;
             flex-direction: column;
-            font-family: 'Poppins', sans-serif;
-            overflow-y: scroll;
-        }
-        .bg-cover {
-            background: url('assets/LnLogo1.png') no-repeat center center;
-            background-size: contain;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            animation: fadeIn 3s forwards;
-            z-index: -1;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-        .content-wrapper {
-            width: 100%;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 100px 20px;
+            font-family: 'Poppins', sans-serif;
         }
-        .content {
+        .header-content {
             position: relative;
             z-index: 1;
             color: white;
             text-align: center;
-            padding: 40px;
+            padding: 20px;
             max-width: 800px;
             background-color: rgba(0, 0, 0, 0.6);
             border-radius: 10px;
+            margin: 10px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .content h1, .content p, .content ul {
-            margin-bottom: 40px;
+        .header-content img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
-        .content h1 {
+        .header-content h1 {
             text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
-            font-size: 2.5em;
+            font-size: 3em;
+            font-family: 'Playfair Display', serif;
         }
-        .content p {
-            font-size: 1.2em;
+        .header-content p {
+            font-size: 1.5em;
         }
-        .contact-info {
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons a {
+            margin: 10px 40px;
+            padding: 10px 20px;
             font-size: 1.2em;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background-color: rgba(0, 123, 255, 0.6);
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .buttons a.btn-outline-light {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+        .buttons a:hover {
+            background-color: rgba(0, 86, 179, 0.6);
         }
         nav.navbar {
             width: 100%;
             position: fixed;
             top: 0;
             z-index: 2;
+            font-family: 'Poppins', sans-serif;
         }
         footer {
+            position: fixed;
+            bottom: 0;
             width: 100%;
             z-index: 1;
+            font-family: 'Poppins', sans-serif;
         }
-        /* Custom styles for the modal */
-        .modal-content {
-            background-color: #333;
-            color: white;
-            border-radius: 10px;
-            padding: 20px;
-        }
-        .modal-header {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .modal-header .btn-close {
-            filter: invert(1);
-        }
-        .modal-title {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-        .form-floating .form-control {
-            background-color: #444;
-            border: 1px solid #555;
+        /* Skills Section */
+        .skills-section {
+            padding: 20px 0;
+            text-align: center;
             color: white;
         }
-        .form-floating .form-control:focus {
-            background-color: #555;
-            border-color: #007bff;
+        .skills-section h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 30px;
         }
-        .form-floating label {
-            color: #aaa;
+        .skills-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
-        .btn-primary {
+        .skills-icons div {
+            width: auto;
+            height: auto;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skills-icons div:hover {
+        transform: scale(1.2);
+        box-shadow: 0 4px 25px rgba(0, 123, 255, 0.6); /* Closer shadow with higher spread and opacity */
+        }
+        .skills-icons i {
+            font-size: 8em !important;
+            color: #007bff;
+            width: auto !important;
+            height: auto !important;
+            transition: color 0.3s;
+        }
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 40px 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
             background-color: #007bff;
-            border: none;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: background-color 0.3s;
         }
-        .btn-primary:hover {
+        .timeline-item {
+            padding: 20px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 10px;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item::before {
+            content: ' ';
+            position: absolute;
+            top: 15px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #007bff;
+            z-index: 1;
+            transition: background-color 0.3s;
+        }
+        .timeline-item.left::before {
+            right: -30px;
+        }
+        .timeline-item.right::before {
+            left: -30px;
+        }
+        .timeline-content {
+            background-color: rgba(50, 50, 50, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.3s;
+            color: #f0f0f0;
+        }
+        .timeline-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        .timeline-content p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        /* Interactive Elements */
+        .timeline-item:hover {
+            transform: scale(1.03); /* Slightly less zoom to avoid making it too big */
+            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3); /* Softer and more diffuse shadow */
+        }
+        .timeline-item:hover::before {
             background-color: #0056b3;
+        }
+        .timeline-item.left:hover {
+            transform: translateX(-5%) scale(1.03);
+        }
+        .timeline-item.right:hover {
+            transform: translateX(5%) scale(1.03);
+        }
+        /* Education Section */
+        .education-section {
+            padding: 50px 0;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        .education-section img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .education-section h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+        .education-content {
+            background-color: rgba(50, 50, 50, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <div class="bg-cover"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid px-5">
-            <a class="navbar-brand" href="index.html">L N Unique Creations</a>
+            <a class="navbar-brand" href="index.html">Taylor Morabito Portfolio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="content-wrapper flex-shrink-0">
-        <section style="height: 100px;"></section> <!-- Space above content -->
+    <main class="flex-shrink-0">
         <!-- Header-->
-        <header class="content">
-            <h1 class="display-5 fw-bolder">About L N Unique Creations</h1>
-            <p class="lead fw-normal">Welcome to our shop! We are Neal and LaVerna, a married couple passionate about crafting custom gifts for all occasions. Located in the heart of Wilmington, our small shop allows us to give each project the personal touch it deserves. We are dedicated to helping you bring your imagination and designs to life, ensuring that every product is uniquely yours. Whether it's a gift for a loved one or a special item for yourself, we are here to make your vision set sail. Let us create something extraordinary for you!</p>
-            <p class="lead fw-normal">We specialize in creating custom gifts with:</p>
-            <ul class="lead fw-normal">
-                <li>Laser Engraving</li>
-                <li>Sand Carving</li>
-                <li>Vinyl Lettering</li>
-                <li>Special Ink Products</li>
-            </ul>
-            <p class="contact-info">Contact us at: <a href="tel:9105461330">910-546-1330</a></p>
+        <header class="header-content">
+            <img src="assets/profilepic.png" alt="Taylor Morabito Profile Picture">
+            <h1>Taylor Morabito</h1>
+            <p>Graduate Student at UNCW | Computer Science and Information Systems</p>
         </header>
-        <section style="height: 100px;"></section> <!-- Space below content -->
+
+        <!-- Skills Section -->
+        <section class="skills-section">
+            <h2>My Skills</h2>
+            <div class="skills-icons">
+                <div><i class="fab fa-js-square" title="JavaScript"></i><p>JavaScript</p></div>
+                <div><i class="fab fa-react" title="React"></i><p>React</p></div>
+                <div><i class="fab fa-python" title="Python"></i><p>Python</p></div>
+                <div><i class="fab fa-java" title="Java"></i><p>Java</p></div>
+                <div><i class="fab fa-html5" title="HTML"></i><p>HTML</p></div>
+                <div><i class="fab fa-css3-alt" title="CSS"></i><p>CSS</p></div>
+                <div><i class="fab fa-aws" title="AWS"></i><p>AWS</p></div>
+                <div><i class="fab fa-docker" title="Docker"></i><p>Docker</p></div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section class="skills-section">
+            <h2>Professional Experience</h2>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Web Developer - Contract</h3>
+                    <p>M3 Digital - September 2021 to February 2022</p>
+                    <p>Front-end development for a variety of Shopify stores such as FitazFK, Rider Collective, Masseuse Massage, etc. Developed high-quality landing pages and front-end features using HTML, CSS, SCSS, JavaScript, and Liquid.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Junior Developer</h3>
+                    <p>YouPay - February 2022 to November 2022</p>
+                    <p>Developed features using Laravel, Vue.js, PHP, JavaScript, Tailwind CSS, MySQL, and REST APIs. Created systems to streamline merchant processes for YouPay integration.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Software Engineer</h3>
+                    <p>The University of Queensland - November 2022 to January 2024</p>
+                    <p>Full-stack developer working in Application Development, collaborating with multiple services and UI components using JavaScript frameworks.</p>
+                </div>
+            </div>
+            <!-- Additional Sample Jobs -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Frontend Developer</h3>
+                    <p>Tech Solutions - March 2024 to Present</p>
+                    <p>Building interactive and responsive web pages using React, JavaScript, and CSS. Collaborating with design and backend teams to create seamless user experiences.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Backend Developer</h3>
+                    <p>DataWorks - January 2023 to February 2024</p>
+                    <p>Designed and implemented RESTful APIs using Node.js and Express. Worked on database management and optimization using MongoDB.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education-section">
+            <h2>Education</h2>
+            <div class="education-content">
+                <div class="education-entry">
+                    <img src="assets/uncw_logo2.png" alt="UNCW Logo" class="education-logo">
+                    <div class="education-text">
+                        <div class="education-degree"><strong>Bachelor of Science in Computer Science</strong></div>
+                        <div class="education-details">University of North Carolina Wilmington - May 2024</div>
+                    </div>
+                </div>
+                <div class="education-entry">
+                    <img src="assets/uncw_logo2.png" alt="UNCW Logo" class="education-logo">
+                    <div class="education-text">
+                        <div class="education-degree"><strong>Master of Science in Computer Science and Information Systems</strong></div>
+                        <div class="education-details">University of North Carolina Wilmington - Current</div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <!-- Footer-->
     <footer class="bg-dark py-4">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; L N Unique Creations 2024</div></div>
-                <div class="col-auto">
-                    <a class="link-light small" href="#!">Privacy</a>
-                    <span class="text-white mx-1">&middot;</span>
-                    <a class="link-light small" href="#!" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
-                </div>
+                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Taylor Morabito 2024</div></div>
             </div>
         </div>
     </footer>
 
-    <!-- Contact Form Modal -->
+    <!-- Contact Links Modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Get in touch</h5>
+                    <h5 class="modal-title" id="contactModalLabel">Connect with Me</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="contactForm">
-                        <!-- Name input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." required />
-                            <label for="name">Full name</label>
-                        </div>
-                        <!-- Email address input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
-                            <label for="email">Email address</label>
-                        </div>
-                        <!-- Phone number input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required />
-                            <label for="phone">Phone number</label>
-                        </div>
-                        <!-- Message input-->
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
-                            <label for="message">Message</label>
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="d-grid">
-                            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
-                        </div>
-                    </form>
+                    <div class="d-grid gap-3">
+                        <!-- GitHub Link -->
+                        <a href="https://github.com/yourusername" target="_blank" class="btn btn-dark btn-lg">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <!-- LinkedIn Link -->
+                        <a href="https://www.linkedin.com/in/yourusername" target="_blank" class="btn btn-primary btn-lg">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <!-- Email Link -->
+                        <a href="mailto:youremail@example.com" class="btn btn-success btn-lg">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Bootstrap core JS-->
+
+    <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <!-- Add FontAwesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
