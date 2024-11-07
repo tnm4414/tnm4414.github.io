@@ -1,0 +1,96 @@
+/* General Body and Layout */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    transition: background-color 0.5s ease;
+}
+
+.navbar.scrolled {
+    background-color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+/* Masthead Header Styling */
+header.masthead {
+    min-height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/unnamed.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 3rem 1rem;
+}
+
+/* Background Fade-in */
+.bg-cover {
+    background: url('assets/unnamed.jpg') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: fadeInBackground 3s forwards;
+}
+
+@keyframes fadeInBackground {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Content Fade-in */
+header .content {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeInContent 2s forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeInContent {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Buttons Fade-in */
+.buttons {
+    opacity: 0;
+    animation: fadeInButtons 2s forwards;
+    animation-delay: 5s;
+}
+
+@keyframes fadeInButtons {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Skills Hover Effect */
+#skills .col-md-3 {
+    transition: transform 0.3s ease-in-out;
+}
+
+#skills .col-md-3:hover {
+    transform: translateY(-10px);
+}
+
+/* Project Card Hover Effect */
+.project-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}

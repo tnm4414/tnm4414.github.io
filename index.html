@@ -1,45 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taylor Morabito - E-Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Taylor Morabito E-Profile</title>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap) -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: black;
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Blurred background extension to fill the empty spaces */
+        .bg-blur {
+            background: url('assets/unnamed.jpg') no-repeat center;
+            background-size: cover;
+            filter: blur(15px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.5; /* To keep focus on the main image */
+        }
+
+        /* The main in-focus background image without overlay */
+        .bg-cover {
+            background: url('assets/unnamed.jpg') no-repeat center center;
+            background-size: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            max-width: 800px;
+            border-radius: 10px;
+            margin: 20px;
+            animation: fadeInText 2s forwards;
+            animation-delay: 2s;
+        }
+
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .content h1,
+        .content p {
+            margin-bottom: 20px;
+        }
+
+        .content h1 {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            font-size: 3em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 40px;
+            animation: fadeInButtons 2s forwards;
+            animation-delay: 2s;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        @keyframes fadeInButtons {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .buttons a {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            background-color: rgba(0, 123, 255, 0.7);
+            border: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .buttons a.btn-outline-light {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .buttons a:hover {
+            background-color: rgba(0, 86, 179, 0.8);
+            transform: translateY(-3px);
+        }
+
+        nav.navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 2;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Custom styles for the modal */
+        .modal-content {
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-title {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .form-floating .form-control {
+            background-color: #444;
+            border: 1px solid #555;
+            color: white;
+        }
+
+        .form-floating .form-control:focus {
+            background-color: #555;
+            border-color: #007bff;
+        }
+
+        .form-floating label {
+            color: #aaa;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>Taylor Morabito</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="skills_resume.html">Resume</a></li>
-                <li><a href="projects.html">Projects</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="container">
-        <aside class="sidebar">
-            <img src="./images/IMG_2190.jpg" alt="Taylor Morabito" class="profile-photo">
-            <p>Masters of Computer Science and Information Systems Student at UNCW</p>
-            <a href="mailto:taylor.n.morabito@gmail.com">taylor.n.morabito@gmail.com</a>
-            <p><a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
-        </aside>
-
-        <section class="content">
-            <h2>About me</h2>
-            <p>
-                Hi, I’m Taylor! I am passionate about machine learning, robotics, and healthcare technology. My gift for solving puzzles sparked my passion for computer science, and that curiosity still fuels my journey. I'm also a drummer, finding creativity and rhythm both in music and problem-solving.
-            </p>
-            <article>
-                <p>
-                    My current focus is on immersive learning solutions, with an emphasis on the automotive industry. My latest project creates 3D tools that teach car repairs through gamified, hands-on mobile experiences, helping users master skills like tire changes and jump-starts.
-                </p>
-            </article>
-        </section>
+    <div class="bg-blur"></div>
+    <div class="bg-cover"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="index.html">Taylor Morabito Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-shrink-0">
+        <!-- Header -->
+        <header class="content">
+            <h1 class="display-5 fw-bolder">Taylor Morabito</h1>
+            <div class="buttons">
+                <a class="btn btn-primary" href="projects.html">My Projects</a>
+                <a class="btn btn-outline-light" href="about.html">About Me</a>
+            </div>
+        </header>
     </main>
-
-    <footer>
+    <!-- Footer -->
+    <footer class="bg-dark py-4">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0 text-white">Copyright &copy; Taylor Morabito 2024</div>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Contact Links Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Connect with Me</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-3">
+                        <a href="https://github.com/tnm4414" target="_blank" class="btn btn-dark btn-lg">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/taylormorabito" target="_blank" class="btn btn-primary btn-lg">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="mailto:taylor.n.morabito@gmail.com" class="btn btn-success btn-lg">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
+
 </html>
