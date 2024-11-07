@@ -357,6 +357,37 @@
         </div>
     </footer>
 
+       <!-- Project Modal -->
+       <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel">Project Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <!-- Indicators will be dynamically inserted here -->
+                        </div>
+                        <div class="carousel-inner">
+                            <!-- Slides will be dynamically inserted here -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
         <!-- Contact Links Modal -->
         <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -384,6 +415,84 @@
         
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const projectData = {
+            project1: [
+                {
+                    src: 'assets/projects/tipCalc1.png',
+                    description: "Tip Calculator built in JavaFX"
+                },
+                {
+                    src: 'assets/projects/tipCalc2.png',
+                    description: "Tip Calculator built in JavaFX - DESC 2"
+                },
+                {
+                    src: 'assets/projects/tipCalc3.png',
+                    description: "Tip Calculator built in JavaFX - DESC 3"
+                }
+            ],
+            project2: [
+                {
+                    src: 'assets/projects/redLight1.png',
+                    description: "Red Light Green Light DESC 1"
+                },
+                {
+                    src: 'assets/projects/redLight2.png',
+                    description: "Red Light Green Light DESC 2"
+                },
+                {
+                    src: 'assets/projects/redLight3.png',
+                    description: "Red Light Green Light DESC 3"
+                }
+            ]
+        };
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const projectType = item.getAttribute('data-project');
+                    const projectImages = projectData[projectType];
+                    const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
+                    const carouselIndicators = document.querySelector('#projectCarousel .carousel-indicators');
+                    const modalTitle = document.querySelector('#projectModalLabel');
+    
+                    // Clear existing carousel items and indicators
+                    carouselInner.innerHTML = '';
+                    carouselIndicators.innerHTML = '';
+    
+                    // Create carousel items and indicators dynamically
+                    projectImages.forEach((project, index) => {
+                        const carouselItem = document.createElement('div');
+                        carouselItem.classList.add('carousel-item');
+                        if (index === 0) carouselItem.classList.add('active');
+    
+                        // Add image and description below the image
+                        carouselItem.innerHTML = `
+                            <img src="${project.src}" class="d-block w-100" alt="${projectType} image ${index + 1}">
+                            <div class="project-description">
+                                <p>${project.description}</p>
+                            </div>
+                        `;
+                        carouselInner.appendChild(carouselItem);
+    
+                        // Add indicators
+                        const indicator = document.createElement('button');
+                        indicator.type = 'button';
+                        indicator.dataset.bsTarget = '#projectCarousel';
+                        indicator.dataset.bsSlideTo = index;
+                        if (index === 0) indicator.classList.add('active');
+                        indicator.setAttribute('aria-current', index === 0 ? 'true' : 'false');
+                        indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+                        carouselIndicators.appendChild(indicator);
+                    });
+    
+                    // Set modal title
+                    modalTitle.textContent = item.querySelector('h5').textContent;
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
