@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Projects - Taylor Morabito Portfolio</title>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+        body {
+            background: black;
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
+            overflow-y: scroll;
+        }
+
+        .bg-cover {
+            background: url('assets/uncw.jpg') no-repeat center center fixed;
+            background-size: contain;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        .about-projects {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .project-item {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Custom styles for the modal */
+        .modal-content {
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-title {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        /* Project details for the modal */
+        .carousel-item {
+            text-align: center;
+            position: relative;
+            padding: 40px; /* Increased padding to provide space for the arrows */
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-item img {
+            border-radius: 10px;
+        }
+
+        .project-description {
+            margin-top: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        /* Adjust carousel arrows to be more visible and sit within extended border area */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="bg-cover"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="index.html">Taylor Morabito Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="content-wrapper flex-shrink-0">
+        <section style="height: 100px;"></section> <!-- Space above content -->
+        
+        <!-- Introduction Section About Projects -->
+        <section class="about-projects">
+            <h2>About My Projects</h2>
+            <p>These projects showcase my skills in various technologies including Java, JavaFX, Python, HTML, CSS, JavaScript, and more. Each project has been an opportunity to learn and implement new concepts, ranging from frontend development to backend logic, and everything in between. I believe that projects are the best way to demonstrate practical knowledge, and here you can see some of my work that reflects my passion for technology and problem-solving.</p>
+        </section>
+
+        <!-- Projects Section-->
+        <section class="content">
+            <h1 class="display-5 fw-bolder">My Projects</h1>
+            <p class="lead fw-normal">Explore some of my featured projects</p>
+            <div class="projects-grid">
+                <!-- Project Item -->
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1">
+                    <img src="assets/projects/tipCalc1.png" alt="Project 1">
+                    <h5>Tip Calculator</h5>
+                </div>
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project2">
+                    <img src="assets/projects/redLight1.png" alt="Project 2">
+                    <h5>Red Light Green Light</h5>
+                </div>
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project3">
+                    <img src="assets/projects/testpic3.png" alt="Project 3">
+                    <h5>Project 3</h5>
+                </div>
+            </div>
+        </section>
+        <section style="height: 100px;"></section> <!-- Space below content -->
+    </main>
+    <!-- Footer-->
+    <footer class="bg-dark py-4">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0 text-white">Copyright &copy; Taylor Morabito 2024</div>
+                </div>
+                <div class="col-auto">
+                    <a class="link-light small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel">Project Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <!-- Indicators will be dynamically inserted here -->
+                        </div>
+                        <div class="carousel-inner">
+                            <!-- Slides will be dynamically inserted here -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS to load project details into the modal -->
+    <script>
+        const projectData = {
+            project1: [
+                { 
+                    src: 'assets/projects/tipCalc1.png',
+                    description: "Tip Calculator built in JavaFX"
+                },
+                { 
+                    src: 'assets/projects/tipCalc2.png',
+                    description: "Tip Calculator built in JavaFX - DESC 2"
+                },
+                { 
+                    src: 'assets/projects/tipCalc3.png',
+                    description: "Tip Calculator built in JavaFX - DESC 3"
+                }
+            ],
+            project2: [
+                { 
+                    src: 'assets/projects/redLight1.png',
+                    description: "Red Light Green Light DESC 1"
+                },
+                { 
+                    src: 'assets/projects/redLight2.png',
+                    description: "Red Light Green Light DESC 2"
+                },
+                { 
+                    src: 'assets/projects/redLight3.png',
+                    description: "Red Light Green Light DESC 3"
+                }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const projectType = item.getAttribute('data-project');
+                    const projectImages = projectData[projectType];
+                    const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
+                    const carouselIndicators = document.querySelector('#projectCarousel .carousel-indicators');
+                    const modalTitle = document.querySelector('#projectModalLabel');
+
+                    // Clear existing carousel items and indicators
+                    carouselInner.innerHTML = '';
+                    carouselIndicators.innerHTML = '';
+
+                    // Create carousel items and indicators dynamically
+                    projectImages.forEach((project, index) => {
+                        const carouselItem = document.createElement('div');
+                        carouselItem.classList.add('carousel-item');
+                        if (index === 0) carouselItem.classList.add('active');
+
+                        // Add image and description below the image
+                        carouselItem.innerHTML = `
+                            <img src="${project.src}" class="d-block w-100" alt="${projectType} image ${index + 1}">
+                            <div class="project-description">
+                                <p>${project.description}</p>
+                            </div>
+                        `;
+                        carouselInner.appendChild(carouselItem);
+
+                        // Add indicators
+                        const indicator = document.createElement('button');
+                        indicator.type = 'button';
+                        indicator.dataset.bsTarget = '#projectCarousel';
+                        indicator.dataset.bsSlideTo = index;
+                        if (index === 0) indicator.classList.add('active');
+                        indicator.setAttribute('aria-current', index === 0 ? 'true' : 'false');
+                        indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+                        carouselIndicators.appendChild(indicator);
+                    });
+
+                    // Set modal title
+                    modalTitle.textContent = item.querySelector('h5').textContent;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
