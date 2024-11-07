@@ -37,10 +37,10 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            opacity: 0.5; /* To keep focus on the main image */
+            opacity: 0.5;
         }
 
-        /* The main in-focus background image without overlay */
+        /* The main in-focus background image with fade-in effect */
         .bg-cover {
             background: url('assets/unnamed.jpg') no-repeat center center;
             background-size: contain;
@@ -50,6 +50,14 @@
             width: 100%;
             height: 100%;
             z-index: -1;
+            opacity: 0;
+            animation: fadeIn 5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         .content {
@@ -61,7 +69,8 @@
             max-width: 800px;
             border-radius: 10px;
             margin: 20px;
-            animation: fadeInText 2s forwards;
+            opacity: 0;
+            animation: fadeInText 3s forwards;
             animation-delay: 2s;
         }
 
@@ -85,11 +94,12 @@
         .buttons {
             text-align: center;
             margin-top: 40px;
-            animation: fadeInButtons 2s forwards;
-            animation-delay: 2s;
+            animation: fadeInButtons 3s forwards;
+            animation-delay: 3s;
             display: flex;
             justify-content: center;
             gap: 20px;
+            opacity: 0;
         }
 
         @keyframes fadeInButtons {
