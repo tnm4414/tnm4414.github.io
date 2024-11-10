@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Projects - Taylor Morabito Portfolio</title>
+
+    <!-- Bootstrap CSS and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- Style Definitions -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+        body {
+            background: black;
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
+            overflow-y: scroll;
+        }
+
+        /* Blurred background to extend the image */
+        .bg-blur {
+            background: url('assets/profile.jpg') no-repeat center;
+            background-size: cover;
+            filter: blur(15px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.5;
+        }
+
+        /* Primary background image */
+        .bg-cover {
+            background: url('assets/profile.jpg') no-repeat center center fixed;
+            background-size: contain;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        .about-projects {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 900px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-projects h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .about-projects p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .project-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: left;
+            padding: 20px;
+        }
+
+        .project-feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            min-height: 200px;
+        }
+
+        .project-feature i {
+            font-size: 2.5em;
+            color: #007bff;
+        }
+
+        .project-feature-text {
+            font-size: 0.95em;
+            color: #ddd;
+            line-height: 1.6;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .project-feature {
+                padding: 15px;
+            }
+
+            .project-feature-text {
+                font-size: 0.9em;
+            }
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-item {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-item h5 {
+            font-family: 'Playfair Display', serif;
+            padding: 15px;
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+        }
+
+        .project-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 123, 255, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #333;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .carousel-item {
+            text-align: center;
+            position: relative;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .carousel-item img {
+            border-radius: 10px;
+        }
+
+        .project-description {
+            margin-top: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background and Navbar -->
+    <div class="bg-blur"></div>
+    <div class="bg-cover"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="index.html">Taylor Morabito Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper flex-shrink-0">
+        <!-- About Projects Section -->
+        <section class="about-projects">
+            <h2>About My Projects</h2>
+            <p>These projects showcase my skills in various technologies and my ability to solve challenging problems while developing both frontend and backend systems.</p>
+            <div class="project-features">
+                <div class="project-feature">
+                    <i class="bi bi-code-slash"></i>
+                    <div class="project-feature-text">
+                        <strong>Frontend Development:</strong> Creating interactive user interfaces with HTML, CSS, JavaScript, and frameworks like React.
+                    </div>
+                </div>
+                <div class="project-feature">
+                    <i class="bi bi-server"></i>
+                    <div class="project-feature-text">
+                        <strong>Backend Logic:</strong> Designing robust backend systems using Java, Python, and REST APIs.
+                    </div>
+                </div>
+                <div class="project-feature">
+                    <i class="bi bi-layers-fill"></i>
+                    <div class="project-feature-text">
+                        <strong>Full-Stack Integration:</strong> Leveraging frontend and backend knowledge to create cohesive solutions.
+                    </div>
+                </div>
+                <div class="project-feature">
+                    <i class="bi bi-gear-fill"></i>
+                    <div class="project-feature-text">
+                        <strong>Problem Solving:</strong> Applying computational thinking, refining algorithms, and optimizing workflows.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="content">
+            <h1 class="display-5 fw-bolder">My Projects</h1>
+            <p class="lead fw-normal">Explore some of my featured projects</p>
+            <div class="projects-grid">
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1" data-project-type="carousel">
+                    <img src="assets/projects/tipCalc1.png" alt="Project 1">
+                    <div class="project-overlay">View Project</div>
+                    <h5>Tip Calculator</h5>
+                </div>
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project2" data-project-type="carousel">
+                    <img src="assets/projects/redLight1.png" alt="Red Light Green Light">
+                    <div class="project-overlay">View Project</div>
+                    <h5>Red Light Green Light</h5>
+                </div>
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-type="madlibs">
+                    <img src="assets/projects/madlibs.png" alt="Madlibs Game">
+                    <div class="project-overlay">Play Madlibs</div>
+                    <h5>Madlibs Game</h5>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-4">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0 text-white">Copyright &copy; Taylor Morabito 2024</div>
+                </div>
+                <div class="col-auto">
+                    <a class="link-light small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel">Project Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Project Carousel -->
+                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <!-- Indicators will be dynamically added here -->
+                        </div>
+                        <div class="carousel-inner">
+                            <!-- Carousel items will be dynamically added here -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                    <!-- Madlibs Game Section -->
+                    <div id="madlibsGame" style="display: none;">
+                        <label for="madlibSelect">Choose a story:</label>
+                        <select id="madlibSelect" onchange="loadMadlibStory()">
+                            <option value="Tarzan">Tarzan</option>
+                            <option value="Disney">Disney</option>
+                        </select>
+                        <div id="madlibInputs"></div>
+                        <button class="btn btn-primary mt-3" onclick="generateMadlibStory()">Generate Story</button>
+                        <div id="madlibOutput" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Custom Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for Modal Functionality and Madlibs Game -->
+    <script>
+        const projectData = {
+            project1: [
+                { src: 'assets/projects/tipCalc1.png', description: "Tip Calculator built in JavaFX" },
+                { src: 'assets/projects/tipCalc2.png', description: "Tip Calculator built in JavaFX - DESC 2" },
+                { src: 'assets/projects/tipCalc3.png', description: "Tip Calculator built in JavaFX - DESC 3" }
+            ],
+            project2: [
+                { src: 'assets/projects/redLight1.png', description: "Red Light Green Light DESC 1" },
+                { src: 'assets/projects/redLight2.png', description: "Red Light Green Light DESC 2" },
+                { src: 'assets/projects/redLight3.png', description: "Red Light Green Light DESC 3" }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const projectType = item.getAttribute('data-project-type');
+
+                    if (projectType === "carousel") {
+                        showCarousel(item.getAttribute('data-project'));
+                    } else if (projectType === "madlibs") {
+                        toggleMadlibGame();
+                    }
+                });
+            });
+        });
+
+        function showCarousel(projectType) {
+            const projectImages = projectData[projectType];
+            const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
+            const carouselIndicators = document.querySelector('#projectCarousel .carousel-indicators');
+            const modalTitle = document.querySelector('#projectModalLabel');
+
+            carouselInner.innerHTML = '';
+            carouselIndicators.innerHTML = '';
+
+            projectImages.forEach((project, index) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.classList.add('carousel-item');
+                if (index === 0) carouselItem.classList.add('active');
+
+                carouselItem.innerHTML = `
+                    <img src="${project.src}" class="d-block w-100" alt="${projectType} image ${index + 1}">
+                    <div class="project-description">
+                        <p>${project.description}</p>
+                    </div>
+                `;
+                carouselInner.appendChild(carouselItem);
+
+                const indicator = document.createElement('button');
+                indicator.type = 'button';
+                indicator.dataset.bsTarget = '#projectCarousel';
+                indicator.dataset.bsSlideTo = index;
+                indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+                if (index === 0) indicator.classList.add('active');
+                carouselIndicators.appendChild(indicator);
+            });
+
+            document.getElementById("projectCarousel").style.display = "block";
+            document.getElementById("madlibsGame").style.display = "none";
+            modalTitle.textContent = projectType === "project1" ? "Tip Calculator" : "Red Light Green Light";
+        }
+
+        function toggleMadlibGame() {
+            document.getElementById("madlibsGame").style.display = "block";
+            document.getElementById("projectCarousel").style.display = "none";
+            document.getElementById("projectModalLabel").textContent = "Madlibs Game";
+            loadMadlibStory();
+        }
+
+        const madlibsStories = {
+            "Tarzan": [
+                "One of the most <adjective> characters in fiction is named \"Tarzan of the <plural-noun>.\" Tarzan was raised by a/an <noun> and lives in the <adjective> jungle in the heart of darkest <place>.",
+                "He spends most of his time eating <plural-noun> and swinging from tree to <noun>. Whenever he gets angry, he beats on his chest and says, \"<funny-noise>!\"",
+                "Tarzan always dresses in <adjective> shorts made from the skin of a/an <noun> and his best friend is a/an <adjective> chimpanzee named Cheetah."
+            ],
+            "Disney": [
+                "Last month, I went to Disney World with <friend's-name>. We traveled for <number-of-hours> by <vehicle>. Finally, we arrived and it was very <adjective>.",
+                "There were <adjective> people <ing-verb> everywhere. There were also people dressed up in <animal> costumes.",
+                "We went on a(n) <adjective> ride called Magic <noun>. My friend nearly fell off a ride and had to be <past-tense-verb>."
+            ]
+        };
+
+        function loadMadlibStory() {
+            const storyName = document.getElementById("madlibSelect").value;
+            const selectedMadlibStory = madlibsStories[storyName];
+            const inputFieldsDiv = document.getElementById("madlibInputs");
+            inputFieldsDiv.innerHTML = ""; 
+
+            const placeholders = new Set();
+            selectedMadlibStory.forEach(sentence => {
+                const matches = sentence.match(/<[^>]+>/g);
+                if (matches) matches.forEach(match => placeholders.add(match));
+            });
+
+            placeholders.forEach(placeholder => {
+                const label = document.createElement("label");
+                label.textContent = `Enter a ${placeholder.replace(/<|>/g, "")}: `;
+                const input = document.createElement("input");
+                input.type = "text";
+                input.id = placeholder;
+                input.className = "form-control my-1";
+                inputFieldsDiv.appendChild(label);
+                inputFieldsDiv.appendChild(input);
+            });
+        }
+
+        function generateMadlibStory() {
+            const storyName = document.getElementById("madlibSelect").value;
+            const selectedMadlibStory = madlibsStories[storyName];
+            const completedStory = selectedMadlibStory.map(sentence =>
+                sentence.replace(/<[^>]+>/g, match => {
+                    const userInput = document.getElementById(match).value;
+                    return userInput ? userInput : match;
+                })
+            );
+            document.getElementById("madlibOutput").innerHTML = "<h5>Your Madlib Story:</h5><p>" + completedStory.join(" ") + "</p>";
+        }
+    </script>
+</body>
+</html>
