@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Projects - Taylor Morabito Portfolio</title>
 
-    <!-- Bootstrap icons -->
+    <!-- Bootstrap CSS and Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
 
+    <!-- Style Definitions -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
@@ -266,6 +266,7 @@
 </head>
 
 <body>
+    <!-- Background and Navbar -->
     <div class="bg-blur"></div>
     <div class="bg-cover"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -282,74 +283,68 @@
                     <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                 </ul>
             </div>
-            <div id="madlibsGame" style="display: none;">
-                <label for="madlibSelect">Choose a story:</label>
-                <select id="madlibSelect" onchange="loadMadlibStory()">
-                    <option value="Tarzan">Tarzan</option>
-                    <option value="Disney">Disney</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="School Day">School Day</option>
-                </select>
-                <div id="madlibInputs"></div>
-                <button class="btn btn-primary mt-3" onclick="generateMadlibStory()">Generate Story</button>
-                <div id="madlibOutput" class="mt-3"></div>
-            </div>
         </div>
     </nav>
+
+    <!-- Main Content -->
     <main class="content-wrapper flex-shrink-0">
-        <!-- Introduction Section About Projects -->
+        <!-- About Projects Section -->
         <section class="about-projects">
             <h2>About My Projects</h2>
-            <p>These projects showcase my skills in various technologies and my ability to solve challenging problems while developing both frontend and backend systems. Each project has been an opportunity to implement new concepts, explore new ideas, and strengthen my understanding of full-stack development.</p>
+            <p>These projects showcase my skills in various technologies and my ability to solve challenging problems while developing both frontend and backend systems.</p>
             <div class="project-features">
                 <div class="project-feature">
                     <i class="bi bi-code-slash"></i>
                     <div class="project-feature-text">
-                        <strong>Frontend Development:</strong> Creating intuitive and interactive user interfaces with HTML, CSS, JavaScript, and modern frameworks like React.
+                        <strong>Frontend Development:</strong> Creating interactive user interfaces with HTML, CSS, JavaScript, and frameworks like React.
                     </div>
                 </div>
                 <div class="project-feature">
                     <i class="bi bi-server"></i>
                     <div class="project-feature-text">
-                        <strong>Backend Logic:</strong> Designing robust backend systems using Java, Python, and working with REST APIs to connect applications seamlessly.
+                        <strong>Backend Logic:</strong> Designing robust backend systems using Java, Python, and REST APIs.
                     </div>
                 </div>
                 <div class="project-feature">
                     <i class="bi bi-layers-fill"></i>
                     <div class="project-feature-text">
-                        <strong>Full-Stack Integration:</strong> Leveraging both frontend and backend knowledge to create cohesive and efficient full-stack solutions.
+                        <strong>Full-Stack Integration:</strong> Leveraging frontend and backend knowledge to create cohesive solutions.
                     </div>
                 </div>
                 <div class="project-feature">
                     <i class="bi bi-gear-fill"></i>
                     <div class="project-feature-text">
-                        <strong>Problem Solving:</strong> Tackling real-world problems by applying computational thinking, refining algorithms, and optimizing workflows.
+                        <strong>Problem Solving:</strong> Applying computational thinking, refining algorithms, and optimizing workflows.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section class="content" style="background: rgba(0, 0, 0, 0.7);">
+        <!-- Projects Grid -->
+        <section class="content">
             <h1 class="display-5 fw-bolder">My Projects</h1>
             <p class="lead fw-normal">Explore some of my featured projects</p>
             <div class="projects-grid">
-                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1">
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1" data-project-type="carousel">
                     <img src="assets/projects/tipCalc1.png" alt="Project 1">
                     <div class="project-overlay">View Project</div>
                     <h5>Tip Calculator</h5>
                 </div>
-                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project2">
-                    <img src="assets/projects/redLight1.png" alt="Project 2">
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project2" data-project-type="carousel">
+                    <img src="assets/projects/redLight1.png" alt="Red Light Green Light">
                     <div class="project-overlay">View Project</div>
                     <h5>Red Light Green Light</h5>
                 </div>
-                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project3">
-                    <img src="assets/projects/testpic3.png" alt="Project 3">
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project3" data-project-type="carousel">
+                    <img src="assets/projects/flameproduct.png" alt="IOT Flame Detector">
                     <div class="project-overlay">View Project</div>
-                    <h5>Project 3</h5>
+                    <h5>IOT Flame Detector</h5>
                 </div>
-
+                <div class="project-item" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-type="madlibs">
+                    <img src="assets/projects/madlibspicture.png" alt="Madlibs Game">
+                    <div class="project-overlay">Play Madlibs</div>
+                    <h5>Madlibs Game</h5>
+                </div>
             </div>
         </section>
     </main>
@@ -370,8 +365,8 @@
         </div>
     </footer>
 
-       <!-- Project Modal -->
-       <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -379,12 +374,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <!-- Project Carousel -->
                     <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <!-- Indicators will be dynamically inserted here -->
+                            <!-- Indicators will be dynamically added here -->
                         </div>
                         <div class="carousel-inner">
-                            <!-- Slides will be dynamically inserted here -->
+                            <!-- Carousel items will be dynamically added here -->
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -395,183 +391,153 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
+
+                    <!-- Madlibs Game Section -->
+                    <div id="madlibsGame" style="display: none;">
+                        <label for="madlibSelect">Choose a story:</label>
+                        <select id="madlibSelect" onchange="loadMadlibStory()">
+                            <option value="Tarzan">Tarzan</option>
+                            <option value="Disney">Disney</option>
+                        </select>
+                        <div id="madlibInputs"></div>
+                        <button class="btn btn-primary mt-3" onclick="generateMadlibStory()">Generate Story</button>
+                        <div id="madlibOutput" class="mt-3"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-        <!-- Contact Links Modal -->
-        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="contactModalLabel">Connect with Me</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-grid gap-3">
-                            <a href="https://github.com/tnm4414" target="_blank" class="btn btn-dark btn-lg">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="https://www.linkedin.com/in/taylormorabito" target="_blank" class="btn btn-primary btn-lg">
-                                <i class="fab fa-linkedin"></i> LinkedIn
-                            </a>
-                            <a href="mailto:taylor.n.morabito@gmail.com" class="btn btn-success btn-lg">
-                                <i class="fas fa-envelope"></i> Email Me
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS and Custom Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript for Modal Functionality and Madlibs Game -->
     <script>
         const projectData = {
             project1: [
-                {
-                    src: 'assets/projects/tipCalc1.png',
-                    description: "Tip Calculator built in JavaFX"
-                },
-                {
-                    src: 'assets/projects/tipCalc2.png',
-                    description: "Tip Calculator built in JavaFX - DESC 2"
-                },
-                {
-                    src: 'assets/projects/tipCalc3.png',
-                    description: "Tip Calculator built in JavaFX - DESC 3"
-                }
+                { src: 'assets/projects/tipCalc1.png', description: "Tip Calculator built in JavaFX" },
+                { src: 'assets/projects/tipCalc2.png', description: "Tip Calculator built in JavaFX - DESC 2" },
+                { src: 'assets/projects/tipCalc3.png', description: "Tip Calculator built in JavaFX - DESC 3" }
             ],
             project2: [
-                {
-                    src: 'assets/projects/redLight1.png',
-                    description: "Red Light Green Light DESC 1"
-                },
-                {
-                    src: 'assets/projects/redLight2.png',
-                    description: "Red Light Green Light DESC 2"
-                },
-                {
-                    src: 'assets/projects/redLight3.png',
-                    description: "Red Light Green Light DESC 3"
-                }
+                { src: 'assets/projects/redLight1.png', description: "Red Light Green Light DESC 1" },
+                { src: 'assets/projects/redLight2.png', description: "Red Light Green Light DESC 2" },
+                { src: 'assets/projects/redLight3.png', description: "Red Light Green Light DESC 3" }
+            ],
+            project3: [
+                { src: 'assets/projects/flameproduct.png', description: "IOT Flame Detector DESC 1" },
+                { src: 'assets/projects/flameflow.png', description: "IOT Flame Detector DESC 2" },
+                { src: 'assets/projects/flameprice.png', description: "IOT Flame Detector DESC 3" },
+                { src: 'assets/projects/flameonline.png', description: "IOT Flame Detector DESC 4" }
             ]
         };
-    
+
         document.addEventListener('DOMContentLoaded', () => {
             const projectItems = document.querySelectorAll('.project-item');
             projectItems.forEach(item => {
                 item.addEventListener('click', () => {
-                    const projectType = item.getAttribute('data-project');
-                    const projectImages = projectData[projectType];
-                    const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
-                    const carouselIndicators = document.querySelector('#projectCarousel .carousel-indicators');
-                    const modalTitle = document.querySelector('#projectModalLabel');
-    
-                    // Clear existing carousel items and indicators
-                    carouselInner.innerHTML = '';
-                    carouselIndicators.innerHTML = '';
-    
-                    // Create carousel items and indicators dynamically
-                    projectImages.forEach((project, index) => {
-                        const carouselItem = document.createElement('div');
-                        carouselItem.classList.add('carousel-item');
-                        if (index === 0) carouselItem.classList.add('active');
-    
-                        // Add image and description below the image
-                        carouselItem.innerHTML = `
-                            <img src="${project.src}" class="d-block w-100" alt="${projectType} image ${index + 1}">
-                            <div class="project-description">
-                                <p>${project.description}</p>
-                            </div>
-                        `;
-                        carouselInner.appendChild(carouselItem);
-    
-                        // Add indicators
-                        const indicator = document.createElement('button');
-                        indicator.type = 'button';
-                        indicator.dataset.bsTarget = '#projectCarousel';
-                        indicator.dataset.bsSlideTo = index;
-                        if (index === 0) indicator.classList.add('active');
-                        indicator.setAttribute('aria-current', index === 0 ? 'true' : 'false');
-                        indicator.setAttribute('aria-label', `Slide ${index + 1}`);
-                        carouselIndicators.appendChild(indicator);
-                    });
-    
-                    // Set modal title
-                    modalTitle.textContent = item.querySelector('h5').textContent;
+                    const projectType = item.getAttribute('data-project-type');
+
+                    if (projectType === "carousel") {
+                        showCarousel(item.getAttribute('data-project'));
+                    } else if (projectType === "madlibs") {
+                        toggleMadlibGame();
+                    }
                 });
             });
         });
-    </script>
-        <!-- Madlibs Game and Modal Script -->
-        <script>
-            const madlibsStories = {
-                "Tarzan": [
-                    "One of the most <adjective> characters in fiction is named \"Tarzan of the <plural-noun>.\" Tarzan was raised by a/an <noun> and lives in the <adjective> jungle in the heart of darkest <place>.",
-                    "He spends most of his time eating <plural-noun> and swinging from tree to <noun>. Whenever he gets angry, he beats on his chest and says, \"<funny-noise>!\"",
-                    "Tarzan always dresses in <adjective> shorts made from the skin of a/an <noun> and his best friend is a/an <adjective> chimpanzee named Cheetah."
-                ],
-                "Disney": [
-                    "Last month, I went to Disney World with <friend's-name>. We traveled for <number-of-hours> by <vehicle>. Finally, we arrived and it was very <adjective>.",
-                    "There were <adjective> people <ing-verb> everywhere. There were also people dressed up in <animal> costumes.",
-                    "We went on a(n) <adjective> ride called Magic <noun>. My friend nearly fell off a ride and had to be <past-tense-verb>."
-                ]
-            };
-    
-            let selectedMadlibStory = [];
-    
-            function loadMadlibStory() {
-                const storyName = document.getElementById("madlibSelect").value;
-                selectedMadlibStory = madlibsStories[storyName];
-                const placeholders = new Set();
-    
-                selectedMadlibStory.forEach(sentence => {
-                    const matches = sentence.match(/<[^>]+>/g);
-                    if (matches) matches.forEach(match => placeholders.add(match));
-                });
-    
-                const inputFieldsDiv = document.getElementById("madlibInputs");
-                inputFieldsDiv.innerHTML = ""; // Clear existing input fields
-    
-                placeholders.forEach(placeholder => {
-                    const label = document.createElement("label");
-                    label.textContent = `Enter a ${placeholder.replace(/<|>/g, "")}: `;
-                    const input = document.createElement("input");
-                    input.type = "text";
-                    input.id = placeholder;
-                    input.className = "form-control my-1";
-                    inputFieldsDiv.appendChild(label);
-                    inputFieldsDiv.appendChild(input);
-                });
-            }
-    
-            function generateMadlibStory() {
-                const completedStory = selectedMadlibStory.map(sentence => {
-                    return sentence.replace(/<[^>]+>/g, match => {
-                        const userInput = document.getElementById(match).value;
-                        return userInput ? userInput : match;
-                    });
-                });
-    
-                document.getElementById("madlibOutput").innerHTML = "<h5>Your Madlib Story:</h5><p>" + completedStory.join(" ") + "</p>";
-            }
-    
-            function toggleMadlibGame() {
-                document.getElementById("madlibsGame").style.display = "block";
-                document.getElementById("projectCarousel").style.display = "none";
-                document.getElementById("projectModalLabel").textContent = "Madlibs Game";
-                loadMadlibStory(); // Load default story initially
-            }
-    
-            function showCarousel() {
-                document.getElementById("madlibsGame").style.display = "none";
-                document.getElementById("projectCarousel").style.display = "block";
-                document.getElementById("projectModalLabel").textContent = "Project Gallery";
-            }
-        </script>
-</body>
 
+        function showCarousel(projectType) {
+            const projectImages = projectData[projectType];
+            const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
+            const carouselIndicators = document.querySelector('#projectCarousel .carousel-indicators');
+            const modalTitle = document.querySelector('#projectModalLabel');
+
+            carouselInner.innerHTML = '';
+            carouselIndicators.innerHTML = '';
+
+            projectImages.forEach((project, index) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.classList.add('carousel-item');
+                if (index === 0) carouselItem.classList.add('active');
+
+                carouselItem.innerHTML = `
+                    <img src="${project.src}" class="d-block w-100" alt="${projectType} image ${index + 1}">
+                    <div class="project-description">
+                        <p>${project.description}</p>
+                    </div>
+                `;
+                carouselInner.appendChild(carouselItem);
+
+                const indicator = document.createElement('button');
+                indicator.type = 'button';
+                indicator.dataset.bsTarget = '#projectCarousel';
+                indicator.dataset.bsSlideTo = index;
+                indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+                if (index === 0) indicator.classList.add('active');
+                carouselIndicators.appendChild(indicator);
+            });
+
+            document.getElementById("projectCarousel").style.display = "block";
+            document.getElementById("madlibsGame").style.display = "none";
+            modalTitle.textContent = item.querySelector('h5').textContent;
+        }
+
+        function toggleMadlibGame() {
+            document.getElementById("madlibsGame").style.display = "block";
+            document.getElementById("projectCarousel").style.display = "none";
+            document.getElementById("projectModalLabel").textContent = "Madlibs Game";
+            loadMadlibStory();
+        }
+
+        const madlibsStories = {
+            "Tarzan": [
+                "One of the most <adjective> characters in fiction is named \"Tarzan of the <plural-noun>.\" Tarzan was raised by a/an <noun> and lives in the <adjective> jungle in the heart of darkest <place>.",
+                "He spends most of his time eating <plural-noun> and swinging from tree to <noun>. Whenever he gets angry, he beats on his chest and says, \"<funny-noise>!\"",
+                "Tarzan always dresses in <adjective> shorts made from the skin of a/an <noun> and his best friend is a/an <adjective> chimpanzee named Cheetah."
+            ],
+            "Disney": [
+                "Last month, I went to Disney World with <friend's-name>. We traveled for <number-of-hours> by <vehicle>. Finally, we arrived and it was very <adjective>.",
+                "There were <adjective> people <ing-verb> everywhere. There were also people dressed up in <animal> costumes.",
+                "We went on a(n) <adjective> ride called Magic <noun>. My friend nearly fell off a ride and had to be <past-tense-verb>."
+            ]
+        };
+
+        function loadMadlibStory() {
+            const storyName = document.getElementById("madlibSelect").value;
+            const selectedMadlibStory = madlibsStories[storyName];
+            const inputFieldsDiv = document.getElementById("madlibInputs");
+            inputFieldsDiv.innerHTML = "";
+
+            const placeholders = new Set();
+            selectedMadlibStory.forEach(sentence => {
+                const matches = sentence.match(/<[^>]+>/g);
+                if (matches) matches.forEach(match => placeholders.add(match));
+            });
+
+            placeholders.forEach(placeholder => {
+                const label = document.createElement("label");
+                label.textContent = `Enter a ${placeholder.replace(/<|>/g, "")}: `;
+                const input = document.createElement("input");
+                input.type = "text";
+                input.id = placeholder;
+                input.className = "form-control my-1";
+                inputFieldsDiv.appendChild(label);
+                inputFieldsDiv.appendChild(input);
+            });
+        }
+
+        function generateMadlibStory() {
+            const storyName = document.getElementById("madlibSelect").value;
+            const selectedMadlibStory = madlibsStories[storyName];
+            const completedStory = selectedMadlibStory.map(sentence =>
+                sentence.replace(/<[^>]+>/g, match => {
+                    const userInput = document.getElementById(match).value;
+                    return userInput ? userInput : match;
+                })
+            );
+            document.getElementById("madlibOutput").innerHTML = "<h5>Your Madlib Story:</h5><p>" + completedStory.join(" ") + "</p>";
+        }
+    </script>
+</body>
 </html>
